@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friendly Valentine 💝</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Comic Sans MS', 'Chalkboard SE', cursive, sans-serif;
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        
+        .valentine-card {
+            background-color: white;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(255, 105, 180, 0.3);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            border: 8px solid #ff85a2;
+            transform-style: preserve-3d;
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotateY(0deg); }
+            50% { transform: translateY(-15px) rotateY(5deg); }
+        }
+        
+        .header {
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            color: #ff4081;
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 0 #ffe0e9;
+            letter-spacing: 1px;
+        }
+        
+        .subtitle {
+            color: #ff6b9d;
+            font-size: 1.4rem;
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+        
+        .message-box {
+            background: linear-gradient(to right, #fff5f7, #fff);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 25px 0;
+            border: 4px dashed #ffb6c1;
+            position: relative;
+        }
+        
+        .message {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        .message strong {
+            color: #ff4081;
+            font-size: 1.4rem;
+        }
+        
+        .heart-emoji {
+            font-size: 2rem;
+            margin: 0 5px;
+            animation: heartbeat 1.2s infinite;
+            display: inline-block;
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        .coworker-message {
+            background-color: #f9f9ff;
+            border-left: 5px solid #85a3ff;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 10px;
+            font-style: italic;
+            color: #666;
+        }
+        
+        .fun-facts {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 30px 0;
+            gap: 15px;
+        }
+        
+        .fact {
+            background-color: #fff0f5;
+            padding: 15px;
+            border-radius: 15px;
+            flex: 1;
+            min-width: 150px;
+            box-shadow: 0 5px 15px rgba(255, 182, 193, 0.2);
+        }
+        
+        .fact i {
+            font-size: 2rem;
+            color: #ff6b9d;
+            margin-bottom: 10px;
+        }
+        
+        .interactive {
+            margin-top: 30px;
+        }
+        
+        .button {
+            background: linear-gradient(to right, #ff7eb3, #ff758c);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 10px;
+            font-family: inherit;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
+        }
+        
+        .button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(255, 105, 180, 0.6);
+            background: linear-gradient(to right, #ff6fa3, #ff6481);
+        }
+        
+        .hidden-message {
+            display: none;
+            background-color: #fffaf0;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            border: 3px solid #ffcc00;
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .decoration {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.7;
+            z-index: -1;
+        }
+        
+        .dec-1 { top: 20px; left: 20px; animation: spin 20s linear infinite; }
+        .dec-2 { top: 20px; right: 20px; animation: bounce 3s ease-in-out infinite; }
+        .dec-3 { bottom: 20px; left: 20px; animation: bounce 2.5s ease-in-out infinite reverse; }
+        .dec-4 { bottom: 20px; right: 20px; animation: spin 25s linear infinite reverse; }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        footer {
+            margin-top: 30px;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 600px) {
+            .valentine-card { padding: 25px; }
+            h1 { font-size: 2.2rem; }
+            .fun-facts { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <div class="valentine-card">
+        <div class="decoration dec-1">💝</div>
+        <div class="decoration dec-2">🎀</div>
+        <div class="decoration dec-3">🌸</div>
+        <div class="decoration dec-4">✨</div>
+        
+        <div class="header">
+            <h1>Happy Valentine's Day!</h1>
+            <p class="subtitle">To an awesome coworker & friend</p>
+        </div>
+        
+        <div class="message-box">
+            <p class="message">
+                Just wanted to say you're an <strong>AMAZING</strong> person to work with! 
+                <span class="heart-emoji">💖</span><br>
+                Thanks for being so helpful, positive, and making the workplace better!
+            </p>
+            
+            <div class="coworker-message">
+                <i class="fas fa-quote-left"></i> 
+                You're the sprinkle of fun in our workday! 
+                <i class="fas fa-quote-right"></i>
+            </div>
+        </div>
+        
+        <div class="fun-facts">
+            <div class="fact">
+                <i class="fas fa-coffee"></i>
+                <h3>Coffee Buddy</h3>
+                <p>Virtual coffee cheers! ☕</p>
+            </div>
+            <div class="fact">
+                <i class="fas fa-laugh-beam"></i>
+                <h3>Mood Booster</h3>
+                <p>You make Mondays better!</p>
+            </div>
+            <div class="fact">
+                <i class="fas fa-hands-helping"></i>
+                <h3>Team Player</h3>
+                <p>Always there to help out</p>
+            </div>
+        </div>
+        
+        <div class="interactive">
+            <button class="button" id="complimentBtn">
+                <i class="fas fa-star"></i> Get a Random Compliment
+            </button>
+            
+            <div id="hiddenMessage" class="hidden-message">
+                <h3>You're awesome because...</h3>
+                <p id="complimentText">Your positivity is contagious!</p>
+                <p><small>Share this with another awesome coworker!</small></p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Made with <span class="heart-emoji" style="font-size: 1rem;">❤️</span> for a great work friend</p>
+            <p>No romantic strings attached — just appreciation!</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const complimentBtn = document.getElementById('complimentBtn');
+            const hiddenMessage = document.getElementById('hiddenMessage');
+            const complimentText = document.getElementById('complimentText');
+            
+            const compliments = [
+                "You handle stress like a pro!",
+                "Your ideas are always so creative!",
+                "You make collaboration fun and easy!",
+                "Your attention to detail is impressive!",
+                "You're a great listener and problem-solver!",
+                "You bring great energy to the team!",
+                "You're incredibly reliable and trustworthy!",
+                "Your sense of humor makes work enjoyable!",
+                "You're always willing to lend a hand!",
+                "You make complex tasks seem simple!"
+            ];
+            
+            complimentBtn.addEventListener('click', function() {
+                // Pick random compliment
+                const randomCompliment = compliments[Math.floor(Math.random() * compliments.length)];
+                complimentText.textContent = randomCompliment;
+                
+                // Show hidden message with animation
+                if (hiddenMessage.style.display === 'block') {
+                    hiddenMessage.style.display = 'none';
+                    setTimeout(() => {
+                        hiddenMessage.style.display = 'block';
+                    }, 50);
+                } else {
+                    hiddenMessage.style.display = 'block';
+                }
+                
+                // Add confetti effect
+                createConfetti();
+            });
+            
+            function createConfetti() {
+                const colors = ['#ff4081', '#ff85a2', '#ffb6c1', '#ffcc00', '#85a3ff'];
+                
+                for (let i = 0; i < 30; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.innerHTML = ['💖', '🎀', '✨', '🌸', '⭐'][Math.floor(Math.random() * 5)];
+                    confetti.style.position = 'fixed';
+                    confetti.style.fontSize = Math.random() * 20 + 15 + 'px';
+                    confetti.style.color = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.top = '-50px';
+                    confetti.style.pointerEvents = 'none';
+                    confetti.style.zIndex = '9999';
+                    confetti.style.opacity = '0.9';
+                    
+                    document.body.appendChild(confetti);
+                    
+                    // Animation
+                    const animation = confetti.animate([
+                        { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+                        { transform: `translateY(${window.innerHeight + 100}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+                    ], {
+                        duration: Math.random() * 2000 + 1500,
+                        easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)'
+                    });
+                    
+                    animation.onfinish = () => confetti.remove();
+                }
+            }
+            
+            // Add floating hearts animation in background
+            function createFloatingHearts() {
+                setInterval(() => {
+                    if (Math.random() > 0.7) {
+                        const heart = document.createElement('div');
+                        heart.innerHTML = '💖';
+                        heart.style.position = 'fixed';
+                        heart.style.fontSize = Math.random() * 25 + 20 + 'px';
+                        heart.style.left = Math.random() * 100 + 'vw';
+                        heart.style.top = '100vh';
+                        heart.style.opacity = Math.random() * 0.5 + 0.2;
+                        heart.style.pointerEvents = 'none';
+                        heart.style.zIndex = '-1';
+                        
+                        document.body.appendChild(heart);
+                        
+                        const animation = heart.animate([
+                            { transform: 'translateY(0) scale(1)', opacity: heart.style.opacity },
+                            { transform: `translateY(-${window.innerHeight + 100}px) scale(${Math.random() * 0.5 + 0.8})`, opacity: 0 }
+                        ], {
+                            duration: Math.random() * 5000 + 3000,
+                            easing: 'linear'
+                        });
+                        
+                        animation.onfinish = () => heart.remove();
+                    }
+                }, 800);
+            }
+            
+            createFloatingHearts();
+        });
+    </script>
+</body>
+</html>
